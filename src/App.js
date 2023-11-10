@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { Box } from '@mui/material';
+import { LandingPage, HomePage, PowerHourOne, PowerHourTwo, PowerHourThree, PowerHourFour } from './components';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+    return (
+        <Box sx={{ backgroundColor: "#27272a" }}>
+            <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/homepage" element={<HomePage />} />
+                <Route path="/powerhour-1" element={<PowerHourOne />} />
+                <Route path="/powerhour-2" element={<PowerHourTwo />} />
+                <Route path="/powerhour-3" element={<PowerHourThree />} />
+                <Route path="/powerhour-4" element={<PowerHourFour />} />
+            </Routes>
+        </Box>
+    );
 }
 
 export default App;
