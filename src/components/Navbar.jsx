@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import { Box, Typography } from '@mui/material';
-import { logo } from '../utils/constants';
+import { logo, logo2 } from '../utils/constants';
 
 const Navbar = () => {
 
@@ -30,7 +30,7 @@ const Navbar = () => {
                         alignItems="center"
                         gap={2}
                     >
-                        <img height="35px" src={logo} alt="logo" />
+                        <img height="40px" src={logo} alt="logo" />
                         <Typography
                             sx={{
                                 fontSize: { xs: '1.375rem', md: '1.875rem' },

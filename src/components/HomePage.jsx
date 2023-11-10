@@ -5,7 +5,7 @@ import { Box, Stack, Typography, Paper, Button } from '@mui/material';
 import { Navbar, Footer } from "../components";
 
 const GradientButton = styled(Button)`
-  background: linear-gradient(45deg, #C92A0E 5%, #DE6C29, #4CD3DD, #163CE6);
+  background: linear-gradient(45deg, #1848d8 1%, #2FC1DA 40%, #F18449 75%, #EC0E75);
   border-radius: 3px;
   border: 0;
   color: white;

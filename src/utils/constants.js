@@ -1,5 +1,5 @@
 // Images
-export const logo = require("../images/power-hour.png");
+export const logo = require("../images/logo.png");
 
 
 // Icons
