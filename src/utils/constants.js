@@ -7,4 +7,4 @@ export const logo = require("../images/power-hour.png");
 
 
 // Videos
-export const powerHour = require("../videos/power-hour.mp4");
+// export const powerHour = require("../videos/power-hour.mp4");
