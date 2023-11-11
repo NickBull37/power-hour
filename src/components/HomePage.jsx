@@ -26,7 +26,10 @@ const HomePage = () => {
                     backgroundColor: "#3e3e41"
                 }}
             >
-                <Stack>
+                <Stack
+                    pt={{ xs: 8, md: 0 }}
+                    pb={{ xs: 10, md: 0 }}
+                >
                     <Typography variant="h4" sx={{ mb: 1 }}>Video List</Typography>
                     <Paper
                         elevation={4}

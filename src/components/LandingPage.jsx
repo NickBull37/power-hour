@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { styled } from '@mui/material/styles';
+import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
+import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 import { Box, Stack, Typography, TextField, Button, FormControl, InputLabel, InputAdornment, IconButton, OutlinedInput, Paper } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { NoAuthNavbar } from "../components";
@@ -15,6 +17,43 @@ const GradientButton = styled(Button)`
   height: 48px;
 `;
 
+const theme = createTheme({
+    overrides: {
+        MuiInputLabel: {
+            root: {
+                color: "orange",
+                "&$focused": {
+                    color: "blue"
+                }
+            }
+        }
+    }
+});
+
+const customTheme = (outerTheme) =>
+    createTheme({
+        palette: {
+            mode: outerTheme.palette.mode,
+        },
+        components: {
+            MuiOutlinedInput: {
+                styleOverrides: {
+                    notchedOutline: {
+                        borderColor: '#fff',
+                    },
+                    root: {
+                        [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
+                            borderColor: '#fff',
+                        },
+                        [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
+                            borderColor: '#fff',
+                        },
+                    },
+                },
+            },
+        },
+    });
+
 const LandingPage = () => {
 
     const [showPassword, setShowPassword] = useState(false);
@@ -22,6 +61,7 @@ const LandingPage = () => {
     const [submitting, setSubmitting] = useState(false);
 
     const navigate = useNavigate();
+    const outerTheme = useTheme();
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -31,7 +71,7 @@ const LandingPage = () => {
     };
 
     const onSubmit = (data) => {
-        if (data.password === "swashbucklers") {
+        if (data.password === "test") {
             navigate("/homepage");
         } else {
             setErrorState("Incorrect Password");
@@ -55,31 +95,34 @@ const LandingPage = () => {
                     <Typography variant="h4">
                         Enter Password
                     </Typography>
-                    <Paper elevation={12} p={4} sx={{ p: 4 }}>
+                    <Paper elevation={12} p={4} sx={{ p: 4, backgroundColor: "#71717a" }}>
                         <form id="authenticate" onSubmit={handleSubmit(onSubmit)}>
                             <Stack gap={4} alignItems="center">
                                 <FormControl variant="outlined">
-                                    <InputLabel htmlFor="password">Password</InputLabel>
-                                    <OutlinedInput
-                                        id='password'
-                                        name='password'
-                                        label="Password"
-                                        type={showPassword ? 'text' : 'password'}
-                                        {...register("password", { required: "Password is required."})}
-                                        error={Boolean(errors.password)}
-                                        endAdornment={
-                                            <InputAdornment position="end">
-                                                <IconButton
-                                                    aria-label="toggle password visibility"
-                                                    onClick={handleClickShowPassword}
-                                                    onMouseDown={handleMouseDownPassword}
-                                                    edge="end"
-                                                >
-                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                                                </IconButton>
-                                            </InputAdornment>
-                                        }
-                                    />
+                                    <InputLabel htmlFor="password" sx={{ color: "#fff" }}>Password</InputLabel>
+                                    <ThemeProvider theme={customTheme(outerTheme)}>
+                                        <OutlinedInput
+                                            id='password'
+                                            name='password'
+                                            label="Password"
+                                            type={showPassword ? 'text' : 'password'}
+                                            {...register("password", { required: "Password is required."})}
+                                            error={Boolean(errors.password)}
+                                            endAdornment={
+                                                <InputAdornment position="end">
+                                                    <IconButton
+                                                        aria-label="toggle password visibility"
+                                                        onClick={handleClickShowPassword}
+                                                        onMouseDown={handleMouseDownPassword}
+                                                        edge="end"
+                                                        sx={{ color: "#fff" }}
+                                                    >
+                                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                    </IconButton>
+                                                </InputAdornment>
+                                            }
+                                        />
+                                    </ThemeProvider>
                                     <Box
                                         id='errorText'
                                         className='hide-display'

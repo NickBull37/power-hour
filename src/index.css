@@ -121,7 +121,6 @@ nav ul li a::after {
     content: '';
     width: 0;
     height: 3px;
-    /* background: var(--cyan); */
     background: var(--logo-gradient);
     position: absolute;
     left: 0;
@@ -132,31 +131,14 @@ nav ul li a::after {
 nav ul li a:hover::after {
     width: 100%;
 }
+.nav-link {
+    font-size: 1.25rem;
+}
 
 nav .fa-solid {
     display: none;
 }
 
-/* .gradient-text-one {
-    background: -webkit-linear-gradient(45deg, #C92A0E, #DE6C29);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-}
-.gradient-text-two {
-    background: -webkit-linear-gradient(45deg, #DE6C29, #D9AD4B);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-}
-.gradient-text-three {
-    background: -webkit-linear-gradient(45deg, #D9AD4B, #4CD3DD);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-}
-.gradient-text-four {
-    background: -webkit-linear-gradient(45deg, #4CD3DD, #163CE6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-} */
 
 
 /********************************************************************************************************************************************
@@ -170,8 +152,10 @@ nav .fa-solid {
 **************************************************************** 8. FOOTER ******************************************************************
 ********************************************************************************************************************************************/
 #footer span {
-    color: var(--cyan);
-    text-decoration: none;
+    font-weight: bold;
+    background: var(--logo-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #footer a {
@@ -180,8 +164,10 @@ nav .fa-solid {
 }
 
 #footer a:hover {
-    color: var(--cyan);
     cursor: pointer;
+    background: var(--logo-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 
@@ -202,11 +188,10 @@ nav .fa-solid {
         display: block;
         font-size: 1.563rem;  /* 25px */
         padding-left: 10px;
-        /* padding-right: 10px; */
     }
 
     nav ul {
-        background: linear-gradient(45deg, #C92A0E 5%, #DE6C29, #4CD3DD, #163CE6);
+        background: var(--logo-gradient);
         position: fixed;
         top: 0;
         right: -200px;

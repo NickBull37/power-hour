@@ -30,10 +30,10 @@ const Navbar = () => {
                         alignItems="center"
                         gap={2}
                     >
-                        <img height="40px" src={logo} alt="logo" />
+                        <img height="50px" src={logo} alt="logo" />
                         <Typography
                             sx={{
-                                fontSize: { xs: '1.375rem', md: '1.875rem' },
+                                fontSize: { xs: '1.375rem', md: '2.25rem' },
                                 fontWeight: '600'
                             }}
                         >
@@ -43,16 +43,16 @@ const Navbar = () => {
                 </Link>
                 <ul id="sidemenu">
                     <li>
-                        <Link className="gradient-text-one" to="/powerhour-1">Power Hour 1</Link>
+                        <Link className="nav-link" to="/powerhour-1">Power Hour 1</Link>
                     </li>
                     <li>
-                        <Link className="gradient-text-two" to="/powerhour-2">Power Hour 2</Link>
+                        <Link className="nav-link" to="/powerhour-2">Power Hour 2</Link>
                     </li>
                     <li>
-                        <Link className="gradient-text-three" to="/powerhour-3">Power Hour 3</Link>
+                        <Link className="nav-link" to="/powerhour-3">Power Hour 3</Link>
                     </li>
                     <li>
-                        <Link className="gradient-text-four" to="/powerhour-4">Power Hour 4</Link>
+                        <Link className="nav-link" to="/powerhour-4">Power Hour 4</Link>
                     </li>
                     <i className="fa-solid fa-xmark" onClick={() => toggleMenu()}></i>
                 </ul>
